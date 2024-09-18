@@ -67,7 +67,7 @@ export default function Component() {
       <div className="pb-[200px] pt-4 md:pt-10 w-full">
         <div className="mx-auto max-w-2xl px-4 z-10 relative">
           <div className="flex flex-col gap-2 rounded-lg border bg-background p-8">
-            <h1 className="text-2xl font-bold mb-6 text-white">Questionario</h1>
+            <h1 className="text-2xl font-bold mb-6">Questionario</h1>
             <div
               ref={scrollAreaRef}
               className="h-[60vh] overflow-hidden"
@@ -92,7 +92,7 @@ export default function Component() {
                           cursor={false}
                           repeat={0}
                           speed={50}
-                          className="text-sm text-white"
+                          className="text-sm"
                         />
                         {index === currentQuestionIndex && (
                           <div
@@ -150,7 +150,7 @@ export default function Component() {
                 {currentQuestionIndex >= questions.length && (
                   <div className="mx-auto max-w-2xl px-4">
                     <div className="flex flex-col gap-2 rounded-lg border bg-background p-8">
-                      <h2 className="text-xl font-bold mb-2 text-white text-center">
+                      <h2 className="text-xl font-bold mb-2 text-center">
                         Questionario completato!
                       </h2>
                       <Link href="/ai" className={cn(buttonVariants())}>

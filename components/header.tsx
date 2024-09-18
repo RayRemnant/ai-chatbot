@@ -29,7 +29,7 @@ async function UserOrLogin() {
         </>
       ) : (
         <Link href="/" rel="nofollow">
-          <div className="text-2xl font-bold text-[#fff]">SAGIM</div>
+          <div className="text-2xl font-bold">SAGIM</div>
         </Link>
       )}
     </>
