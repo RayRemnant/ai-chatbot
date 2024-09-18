@@ -3,13 +3,15 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { TypeAnimation } from 'react-type-animation'
 import { Input } from '@/components/ui/input'
-import { Button } from '@/components/ui/button'
+import { Button, buttonVariants } from '@/components/ui/button'
 import { IconArrowElbow, IconPlus } from '@/components/ui/icons'
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger
 } from '@/components/ui/tooltip'
+import { cn } from '@/lib/utils'
+import Link from 'next/link'
 
 const questions = [
   'Come si chiama la tua azienda?',
@@ -107,8 +109,8 @@ export default function Component() {
                                   onChange={e =>
                                     setCurrentAnswer(e.target.value)
                                   }
-                                  placeholder="Type your answer here..."
-                                  className="pr-10 resize-none bg-transparent  ring-0 focus-visible:ring-0 focus:ring-0"
+                                  placeholder="Scrivi la tua risposta qui..."
+                                  className="pr-10 resize-none bg-transparent ring-0 focus-visible:ring-0 focus:ring-0 placeholder-blue-200"
                                 />
                                 <div className="absolute right-0 top-[6px] sm:right-4">
                                   <Tooltip>
@@ -148,12 +150,15 @@ export default function Component() {
                 {currentQuestionIndex >= questions.length && (
                   <div className="mx-auto max-w-2xl px-4">
                     <div className="flex flex-col gap-2 rounded-lg border bg-background p-8">
-                      <h2 className="text-xl font-bold mb-2 text-white">
+                      <h2 className="text-xl font-bold mb-2 text-white text-center">
                         Questionario completato!
                       </h2>
-                      <p className="text-sm text-gray-300">
-                        Chatta con il tuo AI personalizzato
-                      </p>
+                      <Link href="/ai" className={cn(buttonVariants())}>
+                        <span className="hidden sm:block">
+                          Chatta col tuo AI personalizzato
+                        </span>
+                        <span className="sm:hidden">Deploy</span>
+                      </Link>
                     </div>
                   </div>
                 )}
