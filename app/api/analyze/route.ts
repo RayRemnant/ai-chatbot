@@ -3,10 +3,8 @@ import { NextResponse } from 'next/server'
 const REGOLO_TOKEN = process.env.REGOLO_TOKEN
 
 export async function POST(request: Request) {
-  const { question, userResponse } = await request.json()
+  const { question, userResponse, customPrompt } = await request.json()
 
-  const customPrompt =
-    "Analizza la risposta nel contesto dell'esportazione e del commercio internazionale."
   const prompt = `Analizza la seguente risposta alla domanda '${question}': '${userResponse}'. ${customPrompt}`
 
   const headers = {

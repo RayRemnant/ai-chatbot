@@ -1,11 +1,15 @@
-const analyzeWithLLM = async (question: string, userResponse: string) => {
+const analyzeWithLLM = async (
+  question: string,
+  userResponse: string,
+  customPrompt: string
+) => {
   try {
     const response = await fetch('/api/analyze', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ question, userResponse })
+      body: JSON.stringify({ question, userResponse, customPrompt })
     })
 
     if (!response.ok) {
