@@ -13,6 +13,8 @@ import {
 import { cn } from '@/lib/utils'
 import Link from 'next/link'
 
+import { analyzeWithLLM } from '@/lib/regolo'
+
 const questions = [
   'Come si chiama la tua azienda?',
   'Quale é la tua Ragione Sociale (P.IVA)?',
@@ -50,6 +52,8 @@ export default function Component() {
     e.preventDefault()
     if (currentAnswer.trim() === '') return
     setAnswers(prev => [...prev, currentAnswer])
+    const question = questions[currentQuestionIndex]
+    analyzeWithLLM(question, currentAnswer)
     setCurrentAnswer('')
     setCurrentQuestionIndex(prev => prev + 1)
     setIsTypingComplete(false)
